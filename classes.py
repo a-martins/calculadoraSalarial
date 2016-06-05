@@ -5,6 +5,11 @@ class salario(object):
     Classe com métodos para calcular salário liquido de acordo com os descontos vigentes CLT.
     """
     def __init__(self,salarioBruto, numDependentes):
+        """
+        Método para instanciar o objeto.
+        :param salarioBruto: Salário Bruto a ser calculado o desconto.
+        :param numDependentes: Quantidade de dependentes.
+        """
         super(salario,self).__init__()
         self.salarioBruto = salarioBruto
         self.numDependentes = numDependentes
@@ -12,7 +17,6 @@ class salario(object):
     def inss(self):
         """
         Método para calcular o desconto do inss.
-        :param salarioBruto: Salário Bruto a ser calculado o desconto.
         :return: Valor a ser descontado de acordo com a faixa.
         """
         if self.salarioBruto<= 1556.94:
@@ -28,8 +32,6 @@ class salario(object):
     def irrf(self):
         """
         Calcula o desconto do IRRF de acordo com o salário sem INSS e de acordo com o núemro de dependentes.
-        :param salarioSemInss: Salário descontado com o INSS.
-        :param numDependentes: Quantidade de dependentes.
         :return: Retorna o valor a ser descontado por mês.
         """
         descontoDependente = 189.59
@@ -54,7 +56,6 @@ class salario(object):
     def vt(self,diasTrabalhados,passagemDiaria):
         """
         Método para calcular o valor de desconto do VT.
-        :param salarioBruto: Salário bruto mensal.
         :param diasTrabalhados: Quantidade de dias trabalhados no mês.
         :param passagemDiaria: valor gasto diáriamente com passagens.
         :return: retorna o valor a ser descontado.
